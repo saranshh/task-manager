@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AddTaskForm } from '../components/AddTaskForm';
 import { TaskItem } from '../components/TaskItem';
@@ -23,7 +23,7 @@ export function Dashboard() {
 
     const fetchTasks = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/tasks/${user.id}`);
+        const response = await fetch(`https://task-manager-2dm1.onrender.com/api/tasks/${user.id}`);
         const data = await response.json();
         if (!response.ok) throw new Error(data.error);
         
@@ -42,7 +42,7 @@ export function Dashboard() {
     if (!user) return;
 
     try {
-      const response = await fetch('http://localhost:3000/api/tasks', {
+      const response = await fetch('https://task-manager-2dm1.onrender.com/api/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export function Dashboard() {
     if (!task) return;
 
     try {
-      const response = await fetch(`http://localhost:3000/api/tasks/${id}`, {
+      const response = await fetch(`https://task-manager-2dm1.onrender.com/api/tasks/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ export function Dashboard() {
 
   const handleDeleteTask = async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/tasks/${id}`, {
+      const response = await fetch(`https://task-manager-2dm1.onrender.com/api/tasks/${id}`, {
         method: 'DELETE',
       });
 

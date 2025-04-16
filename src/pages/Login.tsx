@@ -16,7 +16,7 @@ export function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:3000/api/auth/${isSignUp ? 'signup' : 'login'}`, {
+      const response = await fetch(`https://task-manager-2dm1.onrender.com/api/auth/${isSignUp ? 'signup' : 'login'}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
